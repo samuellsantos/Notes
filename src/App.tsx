@@ -1,11 +1,10 @@
-import './App.css'
 import { NotesAPP } from './components/NotesAPP'
 
 function App() {
 
   return (
     <>
-      <div className='w-full h-full flex'>
+      <div className='font-poppins w-full h-full flex p-8'>
         <NotesAPP />
       </div>
     </>
