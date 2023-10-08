@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { motion, AnimatePresence } from 'framer-motion'
+import {useDispatch} from 'react-redux'
 import { ColorSelect } from './ColorSelect'
 
 export const SideMenu = () => {
   const [displayColor, setDisplayColor] = useState(false)
+  const dispatch = useDispatch()
 
   function toggleColor() {
     setDisplayColor(!displayColor)
