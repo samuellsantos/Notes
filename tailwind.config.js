@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         poppins: ['poppins', 'sans-serif'],
       },
+      rotate: {
+        x: '590deg',
+      },
     },
   },
   plugins: [],

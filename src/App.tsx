@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <div className='font-poppins w-full h-full flex p-8'>
+      <div className='min-h-full'>
         <NotesAPP />
       </div>
     </>
