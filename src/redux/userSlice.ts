@@ -1,22 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice,PayloadAction } from '@reduxjs/toolkit'
+
+interface AppState {
+  color: string;
+  BigNote: boolean;
+}
+const initialState: AppState = {
+  color: '',
+  BigNote: false
+}
 
 export const slice = createSlice({
-  name: 'Notes',
-  initialState: [
-    {
-      note: 'teste',
-      color: 'bg-red-500'
-    }
-  ],
+  name: 'app',
+  initialState,
   reducers: {
-    addNote(state, { payload }) {
-      return {...state, note: payload}
+    addBigNote: (state, action: PayloadAction<string>) => {
+      state.color = action.payload
+      state.BigNote = true
     }
   }
 })
 
-export const {addNote} = slice.actions
+export const {addBigNote} = slice.actions
 
 export default slice.reducer
-
-export const selectTest = state => state.user

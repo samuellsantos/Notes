@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { addNote } from './userSlice';
+import userReducer from './userSlice'; // Importe o reducer, não a ação
 
-export default configureStore({
+const store = configureStore({
   reducer: {
-    user: addNote
+    app: userReducer, // Use o reducer aqui
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+export default store
