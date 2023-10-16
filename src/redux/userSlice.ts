@@ -16,10 +16,13 @@ export const slice = createSlice({
     addBigNote: (state, action: PayloadAction<string>) => {
       state.color = action.payload
       state.BigNote = true
+    },
+    closeBigNote: (state) => {
+      state.BigNote = false
     }
   }
 })
 
-export const {addBigNote} = slice.actions
+export const {addBigNote, closeBigNote} = slice.actions
 
 export default slice.reducer
