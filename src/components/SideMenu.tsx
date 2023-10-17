@@ -10,6 +10,7 @@ export const SideMenu = () => {
   const [displayColor, setDisplayColor] = useState(false)
   const dispatch = useDispatch()
   const color = useSelector((state: RootState) => state.app.color)
+  const noteState = useSelector((state: RootState) => state.app.BigNote)
 
   function toggleColor() {
     setDisplayColor(!displayColor)
@@ -17,6 +18,7 @@ export const SideMenu = () => {
 
   function selectedColor (color: string) {
     dispatch(addBigNote(color))
+    setDisplayColor(false)
   }
 
   return (

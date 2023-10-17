@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './userSlice'; // Importe o reducer, não a ação
+import saveNoteSlice from './saveNoteSlice';
 
 const store = configureStore({
   reducer: {
-    app: userReducer, // Use o reducer aqui
+    app: userReducer, 
+    save: saveNoteSlice
   },
 });
 

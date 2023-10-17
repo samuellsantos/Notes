@@ -19,7 +19,7 @@ export const slice = createSlice({
     },
     closeBigNote: (state) => {
       state.BigNote = false
-    }
+    },
   }
 })
 

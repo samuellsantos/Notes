@@ -7,6 +7,7 @@
   import {AiOutlineCloseCircle} from 'react-icons/ai'
 
   import { closeBigNote } from '../redux/userSlice'
+import { saveNote } from '../redux/saveNoteSlice'
 
 
   export const BigNote = () => {
@@ -29,6 +30,14 @@
       dispatch(closeBigNote())
       setText('')
     }
+
+  const handleSaveNote = (note: string, color: string) => {
+    const id = Math.random(); // Gere um ID único (melhor usar uma biblioteca para isso em produção)
+    dispatch(saveNote({ id, note, color }));
+    setTimeout(() => {
+      setText('')
+    }, 500);
+  };
 
     function closeNotePressEsc(e: React.KeyboardEvent<HTMLTextAreaElement>) {
       if(e.key === 'Escape') {
@@ -73,7 +82,8 @@
 
           <motion.div className='cursor-pointer'
           whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}>
+          whileTap={{ scale: 0.9 }}
+          onClick={() => handleSaveNote(text, color)}>
           <AiOutlineCheckCircle size={40}/>
           </motion.div>
         </div>
