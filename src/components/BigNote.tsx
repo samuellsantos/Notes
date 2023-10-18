@@ -7,7 +7,7 @@
   import {AiOutlineCloseCircle} from 'react-icons/ai'
 
   import { closeBigNote } from '../redux/userSlice'
-import { saveNote } from '../redux/saveNoteSlice'
+  import { saveNote } from '../redux/saveNoteSlice'
 
 
   export const BigNote = () => {
@@ -34,6 +34,7 @@ import { saveNote } from '../redux/saveNoteSlice'
   const handleSaveNote = (note: string, color: string) => {
     const id = Math.random(); // Gere um ID único (melhor usar uma biblioteca para isso em produção)
     dispatch(saveNote({ id, note, color }));
+    closeNote()
     setTimeout(() => {
       setText('')
     }, 500);
