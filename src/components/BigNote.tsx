@@ -13,6 +13,8 @@
   export const BigNote = () => {
     const color = useSelector((state: RootState) => state.app.color)
     const BigNote = useSelector((state: RootState) => state.app.BigNote)
+    const notesFromRedux = useSelector((state: RootState) => state.save)
+    const dispatch = useDispatch()
 
     const [text, setText] = useState('')
     const maxLines = 4;
@@ -24,15 +26,13 @@
       }
     };
 
-    const dispatch = useDispatch()
-
     function closeNote (){
       dispatch(closeBigNote())
       setText('')
     }
 
   const handleSaveNote = (note: string, color: string) => {
-    const id = Math.random(); // Gere um ID único (melhor usar uma biblioteca para isso em produção)
+    const id = notesFromRedux.length + 1; 
     dispatch(saveNote({ id, note, color }));
     closeNote()
     setTimeout(() => {
@@ -46,6 +46,7 @@
         setText('')
       }
     }
+    
     return (
       <>
         {BigNote && <motion.div 
@@ -63,9 +64,9 @@
         onChange={handleTextareaChange}
         onKeyDown={closeNotePressEsc}
         className={`${color} border-none focus:outline-none p-4 text-black resize-none rounded-t  overflow-hidden placeholder:text-black/20 placeholder:italic transition-all`}>
-
         </textarea>
-        {/* <input type="text" name="note" id="note" maxLength={100} placeholder='Type your note here!' className={`${color} border-none focus:outline-none p-4 text-black resize-none rounded overflow-hidden placeholder:text-black/20 placeholder:italic transition-all w-auto`}/> */}
+
+
         <div className={`${color} w-full h-16 rounded-b flex items-center justify-between p-4`}>
           <motion.div className='cursor-pointer' 
           whileHover={{ scale: 1.1 }}
