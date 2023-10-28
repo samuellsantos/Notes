@@ -1,4 +1,3 @@
-import React from 'react'
 import {FaPencil} from 'react-icons/fa6'
 
 

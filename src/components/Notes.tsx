@@ -32,7 +32,7 @@ export const Notes = () => {
 
       <div className='flex flex-wrap gap-3'>
       {notesFromRedux.length > 0 ? notesFromRedux.map((note: any) => (
-          <Note color={note.color} key={note.id} onClick={() => noteID(note.id)}>{note.note}</Note>
+          <Note color={note.color} key={note.id} id={note.id} onClick={() => noteID(note.id)}>{note.note}</Note>
       ))
       : <div>
           <h1>
