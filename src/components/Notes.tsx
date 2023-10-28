@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
 import { removeNote } from '../redux/saveNoteSlice'
 
+import notesImage from '../assets/Add notes.gif'
+
 export const Notes = () => {
   const notesFromRedux = useSelector((state: RootState) => state.save)
   const [delNote, setDelNote] = useState(false)
@@ -34,10 +36,9 @@ export const Notes = () => {
       {notesFromRedux.length > 0 ? notesFromRedux.map((note: any) => (
           <Note color={note.color} key={note.id} id={note.id} onClick={() => noteID(note.id)}>{note.note}</Note>
       ))
-      : <div>
-          <h1>
-            You don't have Notes now! 
-          </h1>
+      : <div className='
+      w-full h-full flex items-center justify-center'>
+          <img src={notesImage} alt="Add your note now" />
         </div>}
        
       </div>
