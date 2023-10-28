@@ -15,8 +15,13 @@ const saveNoteSlice = createSlice({
     saveNote: (state, action: PayloadAction<TextAreaState>) => {
       state.push(action.payload);
     },
+    removeNote: (state, action: PayloadAction<number>) => {
+      return state.filter((item) => {
+       item.id !== action.payload
+      })
+    }
   },
 });
 
-export const { saveNote } = saveNoteSlice.actions;
+export const { saveNote, removeNote } = saveNoteSlice.actions;
 export default saveNoteSlice.reducer;

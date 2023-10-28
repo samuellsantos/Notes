@@ -1,13 +1,23 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { BigNote } from './BigNote'
 import { Note } from './Note'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
-import { TrashBtn } from './TrashBtn'
+import { removeNote } from '../redux/saveNoteSlice'
 
 export const Notes = () => {
   const notesFromRedux = useSelector((state: RootState) => state.save)
+  const [delNote, setDelNote] = useState(false)
 
+  const dispatch = useDispatch()
+
+  function noteID(id: number) {
+    if(delNote) {
+      const saveID = id
+      dispatch(removeNote(saveID))
+      setDelNote(false)
+    }
+  }
 
   return (
     <div className='w-full h-full relative'>
@@ -18,16 +28,17 @@ export const Notes = () => {
           </h1>
         </div>
 
-        <div>
-          <TrashBtn />
-        </div>
-
       </header>
 
       <div className='flex flex-wrap gap-3'>
-      {notesFromRedux && notesFromRedux.map((note: any) => (
-          <Note color={note.color} key={note.id}>{note.note}</Note>
-      ))}
+      {notesFromRedux.length > 0 ? notesFromRedux.map((note: any) => (
+          <Note color={note.color} key={note.id} onClick={() => noteID(note.id)}>{note.note}</Note>
+      ))
+      : <div>
+          <h1>
+            You don't have Notes now! 
+          </h1>
+        </div>}
        
       </div>
       <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
