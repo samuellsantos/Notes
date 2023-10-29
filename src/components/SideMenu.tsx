@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, /* useSelector */ } from 'react-redux'
 import { ColorSelect } from './ColorSelect'
 import { addBigNote } from '../redux/userSlice'
-import { RootState } from '../redux/store'
+/* import { RootState } from '../redux/store' */
 
 export const SideMenu = () => {
   const [displayColor, setDisplayColor] = useState(false)
   const dispatch = useDispatch()
-  const color = useSelector((state: RootState) => state.app.color)
-  const noteState = useSelector((state: RootState) => state.app.BigNote)
+/*   const color = useSelector((state: RootState) => state.app.color)
+  const noteState = useSelector((state: RootState) => state.app.BigNote) */
 
   function toggleColor() {
     setDisplayColor(!displayColor)

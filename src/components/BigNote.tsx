@@ -56,8 +56,8 @@
         className='flex items-center flex-col justify-center shadow-md'>
         <textarea name="note"
         id="note" 
-        cols="40"
-        rows="5"
+        cols={40}
+        rows={5}
         maxLength={100}
         placeholder='Type your note here!' 
         value={text}
