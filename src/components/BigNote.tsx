@@ -60,6 +60,7 @@
         rows={5}
         maxLength={100}
         placeholder='Type your note here!' 
+        autoFocus
         value={text}
         onChange={handleTextareaChange}
         onKeyDown={closeNotePressEsc}
