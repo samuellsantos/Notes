@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { motion } from 'framer-motion';
@@ -14,9 +14,14 @@ export const BigNote = () => {
   const BigNote = useSelector((state: RootState) => state.app.BigNote);
   const notesFromRedux = useSelector((state: RootState) => state.save);
   const dispatch = useDispatch();
-
   const [text, setText] = useState('');
   const maxLines = 4;
+
+  interface NotesProps {
+    id: number;
+    note: string;
+    color: string;
+  }
 
   const handleTextareaChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
@@ -34,6 +39,7 @@ export const BigNote = () => {
 
   const handleSaveNote = (note: string, color: string) => {
     const id = notesFromRedux.length;
+
     dispatch(saveNote({ id, note, color }));
     closeNote();
     setTimeout(() => {
@@ -47,6 +53,16 @@ export const BigNote = () => {
       setText('');
     }
   }
+
+  //SAVE LOCALSTORAGE
+  useEffect(() => {
+    const storedNotes = window.localStorage.getItem('notes');
+
+    if (storedNotes) {
+      const parsedTodos = JSON.parse(storedNotes);
+      parsedTodos.forEach((notes: NotesProps) => dispatch(saveNote(notes)));
+    }
+  }, []);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BigNote } from './BigNote';
 import { Note } from './Note';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +20,9 @@ export const Notes = () => {
       setDelNote(false);
     }
   }
+  useEffect(() => {
+    window.localStorage.setItem('notes', JSON.stringify(notesFromRedux));
+  }, [notesFromRedux]);
 
   return (
     <div className="w-full h-full relative">
