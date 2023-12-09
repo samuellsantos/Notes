@@ -38,8 +38,8 @@ export const BigNote = () => {
   }
 
   const handleSaveNote = (note: string, color: string) => {
-    const id = notesFromRedux.length;
-
+    const numeroAleatorio = Math.floor(Math.random() * 50000000000) + 1;
+    let id = notesFromRedux.length + numeroAleatorio;
     dispatch(saveNote({ id, note, color }));
     closeNote();
     setTimeout(() => {
