@@ -68,8 +68,8 @@ export const BigNote = () => {
     <>
       {BigNote && (
         <motion.div
-          initial={{ x: '-100%', opacity: 0 }}
-          animate={{ x: '0%', opacity: 1 }}
+          initial={{ y: '-100%', opacity: 0 }}
+          animate={{ y: '0%', opacity: 1 }}
           transition={{ duration: 0.5 }}
           className="flex items-center flex-col justify-center shadow-md"
         >

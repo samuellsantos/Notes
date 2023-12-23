@@ -25,7 +25,7 @@ export const Notes = () => {
   }, [notesFromRedux]);
 
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full relative transition-all">
       <header className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl mb-4">Notes</h1>
