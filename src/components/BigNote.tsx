@@ -84,7 +84,7 @@ export const BigNote = () => {
             value={text}
             onChange={handleTextareaChange}
             onKeyDown={closeNotePressEsc}
-            className={`${color} border-none focus:outline-none p-4 text-black resize-none rounded-t  overflow-hidden placeholder:text-black/20 placeholder:italic transition-all`}
+            className={`${color} border-none focus:outline-none p-4 text-black resize-none rounded-t  overflow-hidden placeholder:text-black/20 placeholder:italic transition-all w-64 sm:w-96`}
           ></textarea>
 
           <div

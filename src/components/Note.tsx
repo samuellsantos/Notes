@@ -21,7 +21,7 @@ export const Note = ({ color, children, id }: any) => {
       <div
         className={`${color} rounded p-4 max-w-2xl h-auto flex items-center z-20 transition-`}
       >
-        <p className={`max-w-xs break-words pr-16`}>{children}</p>
+        <p className={`max-w-xs break-words sm:pr-8`}>{children}</p>
 
         <div
           onClick={handleOpenOptions}
